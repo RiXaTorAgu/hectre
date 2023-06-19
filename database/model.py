@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Date, ForeignKey, Integer, String, Time
+from sqlalchemy import Boolean, Column, Date, ForeignKey, Integer, String, Time
 from sqlalchemy.orm import declarative_base
 
 Base = declarative_base()
@@ -51,4 +51,18 @@ class Attendance(Base):
 
         return f'Attendance({self.date}, {self.id_employee}, {self.start_time}, {self.end_time})'
     
-    
+class DayStatus(Base):
+
+    __tablename__ = 'day_status'
+
+    date = Column(Date, primary_key=True)
+    is_working_day = Column(Boolean, default=True)
+
+    def __init__(self, date, is_working_day=True):
+
+        self.date = date
+        self.is_working_day = is_working_day
+
+    def __repr__(self):
+
+        return f'DayStatus({self.date}, {self.is_working_day})'
