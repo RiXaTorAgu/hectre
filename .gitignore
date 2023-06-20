@@ -1,3 +1,4 @@
 .vscode/
+src/pruebas.py
+src/asistenciahectre/__pycache__/
 src/database/__pycache__/
-src/asistenciahectre/pruebas.py
